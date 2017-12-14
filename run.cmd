@@ -21,7 +21,8 @@ set dlugosc=00:00:03
 : wypisujemy krotkie info
 echo # Zapisywanie do:  %sciezka%
 echo # Długość nagrania: %dlugosc%
-echo # Trwa nagrywanie...
+echo # Rozpoczynanie nagrywania...
+echo # Wciśnij [q] by przerwać
 
 : wlaczamy nagrywanie
 : ffmpeg -hide_banner -f dshow -i audio="Transmit (Plantronics Savi 7xx-M)" -y -t %dlugosc% "%outputpath%"

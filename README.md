@@ -24,10 +24,7 @@ Nagrywanie odbywa się dzięki prostemu skryptowi shell oraz wykorzystuje darmow
 
 Teraz należy wybrać urządzenie, z którego będziemy nagrywać i wpisać je w skrypcie. Aby to zrobić należy wykonać poniższe kroki.
 
-1. W cmder wpisujemy
-```
-ffmpeg -hide_banner -list_devices true -f dshow -i dummy
-```
+1. W cmder wpisujemy ```ffmpeg -hide_banner -list_devices true -f dshow -i dummy```
 1. Komenda wylistuje nam wszystkie urządzenia audio, z których możemy nagrywać.  Spoglądamy na sekcję `DirectShow audio devices`. Poniżej tego napisu będą urządzenia audio. Przykładowe mogą wyglądać tak:
     - "Transmit (Plantronics Savi 7xx-M)"
     - "Microphone (VIA HD Audio(Win 10))"
