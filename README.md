@@ -12,13 +12,13 @@ Nagrywanie odbywa się dzięki prostemu skryptowi shell oraz wykorzystuje darmow
 
 # Instrukcja instalacji i użytkowania
 
-1. Zainstaluj `Composer` - wersja _Mini_ wystarczy (https://getcomposer.org/)
+1. Pobierz to repozytorium jako plik `.zip`.
+1. Wypakuj pliki do `C:\qLog` (lub innego folderu).
 1. Zainstaluj `cmder` (http://cmder.net/)
 1. Uruchom `Cmder` (Start -> Uruchom -> `cmder` -> `OK`)
 1. Przejdź do `C:\`  wpisując `c:`
-1. Utwórz katalog `qLog` wpisując `mkdir "qLog"`
 1. Przejdź do katalogu `qLog` wpisując `cd qLog`
-1. Zainstaluj `qLog` poprzez composer: `composer require qrzysio/qlog`
+1. Nie zamykaj konsoli, będzie potrzebna do testów.
 
 # Konfiguracja nagrywania
 
@@ -74,20 +74,20 @@ Szczegóły: http://ffmpeg.org/ffmpeg.html#Main-options
 
 ### FTP
 
-Rozszerzenie FTPCopy or Z-Cron (https://www.z-cron.com/ftpcopy.html)
+Rozszerzenie FTPCopy dla Z-Cron (https://www.z-cron.com/ftpcopy.html)
 
 # Możliwe problemy
 
 Kłopot może sprawić program antywirusowy. Konieczne może być ustawienie uruchamiania zarówno pliku `.cmd` jak i `.vbs` z uprawienieniami adminsitratora oraz wykluczonych w programie antywirusowym i/lub określonych jako zaufane.
 
-## Źródła i pomoc
+# Źródła i pomoc
 
 Inspiracją do powstania tego poradnika były wpisy na forum stackoverlow.com.
 
 - [How to record sound 24/7](https://superuser.com/a/548127/582502)
 - [Scheduling silent (...)](https://superuser.com/a/546062/582502)
 
-## Jeszcze więcej
+# Jeszcze więcej
 
 - Program [AutoHotkey](https://www.dobreprogramy.pl/AutoHotkey,Program,Windows,12731.html) umożliwia zapisywanie konkretnych zautomatyzowanych zadań jako pliki `.exe`
 
