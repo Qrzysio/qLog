@@ -81,6 +81,8 @@ Rozszerzenie FTPCopy dla Z-Cron (https://www.z-cron.com/ftpcopy.html)
 
 # Możliwe problemy
 
+Jeżeli podczas testów konsola wyświetla wiele błędów o nieprawiddłowych komendach najczęściej oznacza to, że znaczniki końca linii ustawione zostały na `LF` zamiast `CRLF`. Kliknij prawym klawiszem myszy na `start.cmd` i wybierz `Edytuj`. Jeżeli wszystkie komendy znajdują się w jednej linii, należy poprawić ręcznie składnię lub spróbować ponownie pobrać repozytorium.
+
 Kłopot może sprawić program antywirusowy. Konieczne może być ustawienie uruchamiania zarówno pliku `.cmd` jak i `.vbs` z uprawienieniami adminsitratora oraz wykluczonych w programie antywirusowym i/lub określonych jako zaufane.
 
 # Źródła i pomoc
