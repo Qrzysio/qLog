@@ -24,21 +24,20 @@ Nagrywanie odbywa się dzięki prostemu skryptowi shell oraz wykorzystuje darmow
 
 Teraz należy wybrać urządzenie, z którego będziemy nagrywać i wpisać je w skrypcie. Aby to zrobić należy wykonać poniższe kroki.
 
-1. W cmder wpisujemy ```ffmpeg -hide_banner -list_devices true -f dshow -i dummy```
+1. W cmder wpisujemy `ffmpeg -hide_banner -list_devices true -f dshow -i dummy`
 1. Komenda wylistuje nam wszystkie urządzenia audio, z których możemy nagrywać.  Spoglądamy na sekcję `DirectShow audio devices`. Poniżej tego napisu będą urządzenia audio. Przykładowe mogą wyglądać tak:
     - "Transmit (Plantronics Savi 7xx-M)"
     - "Microphone (VIA HD Audio(Win 10))"
     - "Line In (Sound Blaster Audigy Fx)"
 1. Kopiujemy lub przepisujemy w całości całą nazwę urządzenia, z któego chcemy nagrywać, np. `Transmit (Plantronics Savi 7xx-M)`.
-1. Edytujemy w Notatniku plik `run.cmd` klikając na niego prawym klawiszem myszy i wybierając `Edytuj`.
-1. W linii nr `4` widzimy takie kod: `set nazwa_urzadzenia="TU_WPISZ_NAZWE_URZADZENIA"`
-1. String `TU_WPISZ_NAZWE_URZADZENIA` zamieniamy na nazwę swojego urządzenia pamiętając o pozostawieniu cudzysłowów.
-1. Przykładowy wynik powinien wysglądać tak: `set nazwa_urzadzenia="Transmit (Plantronics Savi 7xx-M)"`
-1. W linii `19` ustawiamy długość nagrywania. Może to być dowolna wartość, np. jedna godzin (01:00:00) lub zaledwie kilka sekund (00:00:03).
+1. Edytujemy w Notatniku plik `urzadzenie.ini` klikając na niego prawym klawiszem myszy i wybierając `Edytuj`.
+1. W pierwszej linii wpisujemy nazwę swojego urządzenia pamiętając o __pozostawieniu cudzysłowów__.
+1. Przykładowy wpis w pliku powinien wyglądać tak: `"Transmit (Plantronics Savi 7xx-M)"`
+1. W linii `19` ustawiamy długość nagrywania. Może to być dowolna wartość, np. jedna godzina (01:00:00) lub zaledwie kilka sekund (00:00:03).
 
 # Testy
 
-1. Po wykonaniu powyższych czynności wracamy do kondoli `cmder` i wpisujemy: `run.cmd`
+1. Po wykonaniu powyższych czynności wracamy do konsoli `cmder` i wpisujemy: `run.cmd`
 1. Na ekranie zobaczymy informację o nowej stronie kodowej, ścieżce zapisu, ustawionej długości nagrania oraz trwającym nagrywaniu i jego zakończeniu.
 1. W czasie testów dobrze ustawić jest krótką wartość nagrywania, np. 3 sekundy, by móc szybko sprawdzić poprawność działania.
 1. Gdy na ekranie konsoli wyświetli się napis `# Zakończono` możemy sprawdzić w folderze `recordings` czy znajduje się tam plik `.mp3` o nazwie podanej w konsoli poczas nagrywania.

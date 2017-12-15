@@ -1,10 +1,13 @@
 @echo off & cls
 
 :: konfiguracja urzadzenia nagrywajacego
-set urzadzenie="Transmit (Plantronics Savi 7xx-M)"
+:: set urzadzenie="Transmit (Plantronics Savi 7xx-M)"
+set /p urzadzenie=<urzadzenie.ini
 
 :: ustawianie strony kodowej jako UTF-8
 chcp 65001
+
+echo # Źródło dźwięku: %urzadzenie%
 
 :: tworzymy folder jesli nie istnieje
 if not exist recordings ( mkdir "recordings" )
