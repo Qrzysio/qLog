@@ -1,3 +1,10 @@
+:: to do
+:: - stworzyc config.ini i tam wpisac nie tylko nazwe urzadzenia, ale takze czas nagrywania
+:: - ewentualnie nawet sciezke
+:: - albo FTP
+:: - mozna zrobic sekcje w configu
+
+
 @echo off & cls
 
 :: konfiguracja urzadzenia nagrywajacego
@@ -6,8 +13,6 @@ set /p urzadzenie=<urzadzenie.ini
 
 :: ustawianie strony kodowej jako UTF-8
 chcp 65001
-
-echo # Źródło dźwięku: %urzadzenie%
 
 :: tworzymy folder jesli nie istnieje
 if not exist recordings ( mkdir "recordings" )
@@ -22,6 +27,7 @@ set sciezka=recordings\%plik%.mp3
 set dlugosc=00:00:03
 
 :: wypisujemy krotkie info
+echo # Źródło dźwięku: %urzadzenie%
 echo # Zapisywanie do:  %sciezka%
 echo # Długość nagrania: %dlugosc%
 echo # Rozpoczynanie nagrywania...
