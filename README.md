@@ -78,6 +78,11 @@ Szczegóły: http://ffmpeg.org/ffmpeg.html#Main-options
 
 Rozszerzenie FTPCopy dla Z-Cron (https://www.z-cron.com/ftpcopy.html)
 
+Konfiguracja jest prosta, ale trzeba to dobrze przetestować, bo zapora w Windows może pytać o potwierdzenie wykonania zadania. W takiej sytuacji trzeba najpierw dodać wyjątek (potwierdzić jego dodanie).
+Po utworzeniu zadania wysyłania na FTP należy kliknąć na zadanie w Z-Cron prawym klawiszem myszy i wybrać "Start".
+
+Inna opcją jest edytowanie zadania i w ścieżce docelowej na serwerze kliknąć "przeglądaj", wtedy program łączy się z FTP i podczas łączenia pojawi się komunikat zapory.
+
 ### Strony kodowe w run.cmd
 
 W różnych wersjach Windows na ekranie konsoli możemy mieć lub nie mieć poprawie wyświetlonych polskich znaków.
