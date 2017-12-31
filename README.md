@@ -78,6 +78,21 @@ Szczegóły: http://ffmpeg.org/ffmpeg.html#Main-options
 
 Rozszerzenie FTPCopy dla Z-Cron (https://www.z-cron.com/ftpcopy.html)
 
+### Strony kodowe w run.cmd
+
+W różnych wersjach Windows na ekranie konsoli możemy mieć lub nie mieć poprawie wyświetlonych polskich znaków.
+
+I tak w Windows 7 strona kodowa konsoli to `852`, a gdy jeśli ustawimy kodowanie na `UTF-8` to do pliku `.mp3` system dopisze nam dodatkowe bajty, tzw. BOM, których nie chcemy. Widać to listując pliki, naierpawidłowa nazwa z dodatkowymi bajtami wygląda np.tak: `''$'\357\273\277''2017-12-31-godz.07.00.02.mp3'`.
+
+Aby tego uniknąć ustawiamy stronę kodową na `Windows-1250` poleceniem `chcp 1250` w pliku `run.cmd`. Ale teraz także ten plik musi być zapisany w kodowaniu `Windows-1250`, więc trzeba o to zadbać w edytorze tekstu.
+
+Kilka słów na ten temat ze strony [Grzegorza Niemirowskiego](https://www.grzegorz.net/articles/index.php?id=conenc).
+> Jak powszechnie wiadomo, windowsowy wiersz polecenia (cmd.exe) używa kodowania 852, takiego samego jak używał DOS. Cała reszta systemu Windows używa natomiast kodowania Windows-1250, znanego też jako CP1250, oraz Unicode. Podczas gdy konwersja z Windows-1250 na Unicode następuje automatycznie i w sposób praktycznie przezroczysty dla użytkownika to z 852 już jest problem. Łatwo się o tym przekonać tworząc w Notatniku plik z polskimi literami i próbując go wyświetlić poleceniem type. Będziemy mieć krzaki. Tak samo jest w drugą stronę. Okazuje się jednak, że można zmieniać stronę kodową wiersza polecenia. Służy do tego polecenie mode con cp select= lub w skrócie chcp. Aby zmienić kodowanie na Windows-1250 wpisujemy:
+> `mode con cp select=1250`
+> lub
+> `chcp 1250`
+> Wiersz polecenia obsługuje też wiele innych kodowań, np. ISO-8859-2 (standard w polskim Internecie, używany też m.in. w Linuksie) oraz UTF-8. Aby ustawić kodowanie ISO-8859-2 należy jako parametr podać liczbę 28592 a dla UTF-8 65001.
+
 # Możliwe problemy
 
 Jeżeli podczas testów konsola wyświetla wiele błędów o nieprawiddłowych komendach najczęściej oznacza to, że znaczniki końca linii ustawione zostały na `LF` zamiast `CRLF`. Kliknij prawym klawiszem myszy na `start.cmd` i wybierz `Edytuj`. Jeżeli wszystkie komendy znajdują się w jednej linii, należy poprawić ręcznie składnię lub spróbować ponownie pobrać repozytorium.

@@ -11,8 +11,10 @@
 :: set urzadzenie="Transmit (Plantronics Savi 7xx-M)"
 set /p urzadzenie=<urzadzenie.ini
 
-:: ustawianie strony kodowej jako UTF-8
-chcp 65001
+:: ustawianie strony kodowej
+:: chcp 65001
+:: chcp 852
+chcp 1250
 
 :: tworzymy folder jesli nie istnieje
 if not exist recordings ( mkdir "recordings" )
