@@ -4,7 +4,6 @@
 :: - albo FTP
 :: - mozna zrobic sekcje w configu
 
-
 @echo off & cls
 
 :: konfiguracja urzadzenia nagrywajacego
@@ -29,13 +28,13 @@ set sciezka=recordings\%plik%.mp3
 set dlugosc=00:00:03
 
 :: wypisujemy krotkie info
-echo # ≈πr√≥d≈Ço d≈∫wiƒôku: %urzadzenie%
-echo # Zapisywanie do:  %sciezka%
-echo # D≈Çugo≈õƒá nagrania: %dlugosc%
+echo # èrÛd≥o düwiÍku: %urzadzenie%
+echo # Zapisywanie do: %sciezka%
+echo # D≥ugoúÊ nagrania: %dlugosc%
 echo # Rozpoczynanie nagrywania...
-echo # Wci≈õnij [q] by przerwaƒá
+echo # Wciúnij [q] by przerwaÊ
 
 :: wlaczamy nagrywanie
 :: ffmpeg -hide_banner -f dshow -i audio="Transmit (Plantronics Savi 7xx-M)" -y -t %dlugosc% "%outputpath%"
 ffmpeg.exe -hide_banner -loglevel warning -ac 2 -f dshow -i audio=%urzadzenie% -y -t %dlugosc% "%sciezka%"
-echo # Zako≈Ñczono
+echo # Koniec!
