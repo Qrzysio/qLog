@@ -1,9 +1,3 @@
-:: to do
-:: - stworzyc config.ini i tam wpisac nie tylko nazwe urzadzenia, ale takze czas nagrywania
-:: - ewentualnie nawet sciezke
-:: - albo FTP
-:: - mozna zrobic sekcje w configu
-
 @echo off & cls
 
 :: konfiguracja urzadzenia nagrywajacego
