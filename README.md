@@ -95,7 +95,23 @@ Teraz możemy zainstalować cyberduck poleceniem:
 `choco install duck`
 
 Polecenie, którym będziemy się posługiwać wygląda tak:
-`duck --existing compare --copy file:///X:/folder_do_wyslania/ ftps://host.ftp.pl/ --username USER_FTP --password PASS_FTP`
+`duck --assumeyes --existing compare --copy file:///X:/folder_do_wyslania/ ftp://host.ftp.pl/ --username USER_FTP --password PASS_FTP`
+
+Jeżeli hasło do FTP zawiera średnik lub inne niestandardowe znaki, to trzeba hasło umieścić w cudzysłowie.
+
+### PowerShell script i konwersja do .exe
+Tworzymy skrypt PowerShell, czyli plik tekstowy o nazwie `qlog.ps1`, a w treści wpisujemy naszą komendę:
+`duck --assumeyes --existing compare --copy file:///X:/folder_do_wyslania/ ftp://host.ftp.pl/ --username USER_FTP --password PASS_FTP`
+
+Aby ulepszyć uruchamianie skryptu, konwertujemy go do pliku `.exe` za pomocą narzędzia [PS1 2 EXE](http://www.f2ko.de/en/p2e.php).
+W folderze `ps1-2-exe` mamy plik `.exe`. Jest to wersja portable x64. Jego nazwa została zmieniona, bo oryginalna posiada nawias (`Ps1_To_Exe_(x64).exe`) i nie zawsze konsola chce go prawidłowo odpalić.
+
+Wchodzimy do folderu z narzędziem do konwertowania plików `.ps1` na `.exe` i uruchamiamy skrypt.
+
+`.\Ps1_To_Exe_x64.exe /ps1 qlogMO.ps1 /exe qloqMO.exe /icon qlog.ico /x64 /uac-admin /fileversion 2018.07.14 /productversion 2018.07.14 /originalfilename "qLog.exe" /internalname "qLog" /description "qLog 1.0" /company "PRO-NET" /copyright "Qrzysio"`
+
+> Narzędzie umieszczamy w ścieżce `X:/qLog/` w przeciwnym razie nie będzie działać. W przypadfku innej lokalizacji podczas kmpilacji zmieniamy ścieżkę w pliku `.ps1`.
+> Lepiej jednak utworzyć oddzielną partycję dla qLoga, np. 50 GB i literze "X".
 
 # Strony kodowe w run.cmd
 
