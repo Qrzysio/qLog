@@ -74,8 +74,9 @@ ffmpeg -hide_banner -loglevel warning -ac 2 -f dshow -i audio=%urzadzenie% -y -t
 
 Szczegóły: http://ffmpeg.org/ffmpeg.html#Main-options
 
-### FTP
+# Wysyłanie na serwer
 
+### FTPCopy
 Rozszerzenie FTPCopy dla Z-Cron (https://www.z-cron.com/ftpcopy.html)
 
 Konfiguracja jest prosta, ale trzeba to dobrze przetestować, bo zapora w Windows może pytać o potwierdzenie wykonania zadania. W takiej sytuacji trzeba najpierw dodać wyjątek (potwierdzić jego dodanie).
@@ -83,7 +84,20 @@ Po utworzeniu zadania wysyłania na FTP należy kliknąć na zadanie w Z-Cron pr
 
 Inna opcją jest edytowanie zadania i w ścieżce docelowej na serwerze kliknąć "przeglądaj", wtedy program łączy się z FTP i podczas łączenia pojawi się komunikat zapory.
 
-### Strony kodowe w run.cmd
+### Cyberduck
+Użyjemy narzędzia Cyberduck CLI: https://duck.sh/
+
+Wymagane jest zainstalowanie [Chocolatey](https://chocolatey.org). W `cmd.exe` wpisujemy:
+
+`@"%SystemRoot%\System32\WindowsPowerShell\v1.0\powershell.exe" -NoProfile -InputFormat None -ExecutionPolicy Bypass -Command "iex ((New-Object System.Net.WebClient).DownloadString('https://chocolatey.org/install.ps1'))" && SET "PATH=%PATH%;%ALLUSERSPROFILE%\chocolatey\bin"`
+
+Teraz możemy zainstalować cyberduck poleceniem:
+`choco install duck`
+
+Polecenie, którym będziemy się posługiwać wygląda tak:
+`duck --existing compare --copy file:///X:/folder_do_wyslania/ ftps://host.ftp.pl/ --username USER_FTP --password PASS_FTP`
+
+# Strony kodowe w run.cmd
 
 W różnych wersjach Windows na ekranie konsoli możemy mieć lub nie mieć poprawie wyświetlonych polskich znaków.
 
