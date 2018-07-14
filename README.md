@@ -106,6 +106,8 @@ Polecenie, którym będziemy się posługiwać wygląda tak:
 
 Jeżeli hasło do FTP zawiera średnik lub inne niestandardowe znaki, to trzeba hasło umieścić w cudzysłowie.
 
+I wystarczy po prostu w Z-CRON dodać plik `qlogMO.exe`, aby uruchamiał się np. co 10-15 minut, wtedy świeże nagrania będą na FTP.
+
 ### PowerShell script i konwersja do .exe
 Tworzymy skrypt PowerShell, czyli plik tekstowy o nazwie `qlog.ps1`, a w treści wpisujemy naszą komendę:
 `duck --assumeyes --existing compare --copy file:///X:/folder_do_wyslania/ ftp://host.ftp.pl/ --username USER_FTP --password PASS_FTP`
