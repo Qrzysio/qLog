@@ -18,17 +18,18 @@ for /f %%a in ('powershell -Command "Get-Date -format yyyy-MM-dd-\g\o\d\z.HH.mm.
 set sciezka=recordings\%plik%.mp3
 
 :: ustawiamy dlugosc nagrania GG:MM:SS
-:: set dlugosc=01:00:00
-set dlugosc=00:00:03
+set dlugosc=01:00:00
+:: set dlugosc=00:00:03
 
 :: wypisujemy krotkie info
-echo # èrÛd≥o düwiÍku: %urzadzenie%
+echo # Zrodlo dzwieku: %urzadzenie%
 echo # Zapisywanie do: %sciezka%
-echo # D≥ugoúÊ nagrania: %dlugosc%
+echo # Dlugosc nagrania: %dlugosc%
 echo # Rozpoczynanie nagrywania...
-echo # Wciúnij [q] by przerwaÊ
+echo # Wcicnij [q] by przerwac
 
 :: wlaczamy nagrywanie
 :: ffmpeg -hide_banner -f dshow -i audio="Transmit (Plantronics Savi 7xx-M)" -y -t %dlugosc% "%outputpath%"
 ffmpeg.exe -hide_banner -loglevel warning -ac 2 -f dshow -i audio=%urzadzenie% -y -t %dlugosc% "%sciezka%"
 echo # Koniec!
+pause

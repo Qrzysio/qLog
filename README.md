@@ -42,6 +42,13 @@ Teraz należy wybrać urządzenie, z którego będziemy nagrywać i wpisać je w
 1. W czasie testów dobrze ustawić jest krótką wartość nagrywania, np. 3 sekundy, by móc szybko sprawdzić poprawność działania.
 1. Gdy na ekranie konsoli wyświetli się napis `# Zakończono` możemy sprawdzić w folderze `recordings` czy znajduje się tam plik `.mp3` o nazwie podanej w konsoli poczas nagrywania.
 
+### Bat 2 EXE
+
+Plik `.cmd` (lub .bat) przerabiamy na `.exe`.
+
+`Bat_To_Exe_Converter_x64.exe /bat run.cmd /exe nagrywaj.exe /icon qlog.ico /x64 /uac-admin /fileversion 2018.07.14 /productversion 2018.07.14 /originalfilename "qLog.exe" /internalname "qLog" /description "qLog 1.0" /company "PRO-NET" /copyright "Qrzysio"`
+
+
 # Harmonogram
 
 Harmonogram nagrywania można ustawić przy pomocy "Harmonogramu zadań" w Windows lub wykorzystać zewnętrzne narzędzie, np. [Z-Cron](https://www.z-cron.com/)
@@ -50,7 +57,7 @@ Harmonogram nagrywania można ustawić przy pomocy "Harmonogramu zadań" w Windo
 
 1. Po uruchomieniu programu klikamy `Tasks` i na dole przycisk `Create new CronJob`.
 1. Podajemy własną nazwę i opis.
-1. W polu `Program` Wskazujemy ścieżkę do pliku `start.vbs` (np. `C:\qLog\start.vbs`).
+1. W polu `Program` Wskazujemy ścieżkę do pliku `nagrywaj.exe` (np. `C:\qLog\nagrywaj.exe`).
 1. Zaznaczamy pola `Activate task` i `Autostart`.
 1. Przechodzimy do zakładki `Scheduler` i klikamy pod zegarem po lewej stronie przycisk `Scheduler`.
 1. Wybieramy interesujące nas ustawienia, na dole są także dostępne zbiorcze presety, np. `Co pięć minut`.
@@ -113,11 +120,12 @@ Wchodzimy do folderu z narzędziem do konwertowania plików `.ps1` na `.exe` i u
 > Narzędzie umieszczamy w ścieżce `X:/qLog/` w przeciwnym razie nie będzie działać. W przypadfku innej lokalizacji podczas kmpilacji zmieniamy ścieżkę w pliku `.ps1`.
 > Lepiej jednak utworzyć oddzielną partycję dla qLoga, np. 50 GB i literze "X".
 
+
 # Strony kodowe w run.cmd
 
 W różnych wersjach Windows na ekranie konsoli możemy mieć lub nie mieć poprawie wyświetlonych polskich znaków.
 
-I tak w Windows 7 strona kodowa konsoli to `852`, a gdy jeśli ustawimy kodowanie na `UTF-8` to do pliku `.mp3` system dopisze nam dodatkowe bajty, tzw. BOM, których nie chcemy. Widać to listując pliki, naierpawidłowa nazwa z dodatkowymi bajtami wygląda np.tak: `''$'\357\273\277''2017-12-31-godz.07.00.02.mp3'`.
+I tak w Windows 7 strona kodowa konsoli to `852`, a gdy jeśli ustawimy kodowanie na `UTF-8` to do pliku `.mp3` system dopisze nam dodatkowe bajty, tzw. BOM, których nie chcemy. Widać to listując pliki, nieprawidłowa nazwa z dodatkowymi bajtami wygląda np.tak: `''$'\357\273\277''2017-12-31-godz.07.00.02.mp3'`.
 
 Aby tego uniknąć ustawiamy stronę kodową na `Windows-1250` poleceniem `chcp 1250` w pliku `run.cmd`. Ale teraz także ten plik musi być zapisany w kodowaniu `Windows-1250`, więc trzeba o to zadbać w edytorze tekstu.
 
@@ -130,9 +138,11 @@ Kilka słów na ten temat ze strony [Grzegorza Niemirowskiego](https://www.grzeg
 
 # Możliwe problemy
 
-Jeżeli podczas testów konsola wyświetla wiele błędów o nieprawiddłowych komendach najczęściej oznacza to, że znaczniki końca linii ustawione zostały na `LF` zamiast `CRLF`. Kliknij prawym klawiszem myszy na `start.cmd` i wybierz `Edytuj`. Jeżeli wszystkie komendy znajdują się w jednej linii, należy poprawić ręcznie składnię lub spróbować ponownie pobrać repozytorium.
+Jeżeli podczas testów konsola wyświetla wiele błędów o nieprawiddłowych komendach najczęściej oznacza to, że znaczniki końca linii ustawione zostały na `LF` zamiast `CRLF`. Kliknij prawym klawiszem myszy na `run.cmd` i wybierz `Edytuj`. Jeżeli wszystkie komendy znajdują się w jednej linii, należy poprawić ręcznie składnię lub spróbować ponownie pobrać repozytorium.
 
 Kłopot może sprawić program antywirusowy. Konieczne może być ustawienie uruchamiania zarówno pliku `.cmd` jak i `.vbs` z uprawienieniami adminsitratora oraz wykluczonych w programie antywirusowym i/lub określonych jako zaufane.
+
+Kaspersky wyrzuca monit o używanie przez FFMPEG streamu. Trzeba dodać plik `mpeg.exe` do wyjątków.
 
 # Źródła i pomoc
 

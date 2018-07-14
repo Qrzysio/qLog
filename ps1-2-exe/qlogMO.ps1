@@ -7,4 +7,5 @@
 
 duck --assumeyes --existing compare --copy file:///X:/qLog/recordings/ ftp://HOST --username "LOGIN" --password "PASS"
 
+
 pause
