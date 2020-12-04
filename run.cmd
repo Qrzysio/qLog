@@ -26,10 +26,11 @@ echo # Zrodlo dzwieku: %urzadzenie%
 echo # Zapisywanie do: %sciezka%
 echo # Dlugosc nagrania: %dlugosc%
 echo # Rozpoczynanie nagrywania...
-echo # Wcicnij [q] by przerwac
+echo # Wcisnij [q] by przerwac
 
 :: wlaczamy nagrywanie
 :: ffmpeg -hide_banner -f dshow -i audio="Transmit (Plantronics Savi 7xx-M)" -y -t %dlugosc% "%outputpath%"
 ffmpeg.exe -hide_banner -loglevel warning -ac 2 -f dshow -i audio=%urzadzenie% -y -t %dlugosc% "%sciezka%"
 echo # Koniec!
+
 pause
